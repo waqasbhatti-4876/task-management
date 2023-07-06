@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dotnetprojects\\TaskManagement\\TaskManagementApi\\TaskManagementApi\\TaskManagementApi.csproj": {}
+    "D:\\Task\\task-management\\TaskManagementApi\\TaskManagementApi\\TaskManagementApi.csproj": {}
   },
   "projects": {
-    "D:\\dotnetprojects\\TaskManagement\\TaskManagementApi\\TaskManagementApi\\TaskManagementApi.csproj": {
+    "D:\\Task\\task-management\\TaskManagementApi\\TaskManagementApi\\TaskManagementApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dotnetprojects\\TaskManagement\\TaskManagementApi\\TaskManagementApi\\TaskManagementApi.csproj",
+        "projectUniqueName": "D:\\Task\\task-management\\TaskManagementApi\\TaskManagementApi\\TaskManagementApi.csproj",
         "projectName": "TaskManagementApi",
-        "projectPath": "D:\\dotnetprojects\\TaskManagement\\TaskManagementApi\\TaskManagementApi\\TaskManagementApi.csproj",
+        "projectPath": "D:\\Task\\task-management\\TaskManagementApi\\TaskManagementApi\\TaskManagementApi.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\dotnetprojects\\TaskManagement\\TaskManagementApi\\TaskManagementApi\\obj\\",
+        "outputPath": "D:\\Task\\task-management\\TaskManagementApi\\TaskManagementApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,16 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.0.143, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.14, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

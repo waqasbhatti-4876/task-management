@@ -7,7 +7,7 @@ import { Task } from './task.model';
   providedIn: 'root'
 })
 export class TaskApiService {
-  private apiUrl = 'https://localhost:7146/api/tasks'; // Update with your API endpoint URL
+  private apiUrl = 'https://taskmanagement-api.azurewebsites.net/api/tasks'; // Update with your API endpoint URL
 
   constructor(private http: HttpClient) { }
 

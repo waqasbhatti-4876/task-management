@@ -15,7 +15,7 @@
           <td *ngIf="task.id === editTaskId">
             <input class="form-control" type="text" [(ngModel)]="editedTask.title" required>
           </td>
-          <td *ngIf="task.id !== editTaskId">{{ task.assignedTo }}</td>
+          <td *ngIf="task.id !== editTaskId">{{ task.name }}</td>
           <td *ngIf="task.id === editTaskId">
             <select class="form-control" [(ngModel)]="editedTask.assignedTo" required>
               <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>

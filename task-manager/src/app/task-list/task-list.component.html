@@ -1,0 +1,58 @@
+<h2>Task List</h2>
+    <div *ngIf="tasks.length === 0">No tasks available.</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Assigned To</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td *ngIf="task.id !== editTaskId; else editForm">{{ task.title }}</td>
+          <td *ngIf="task.id === editTaskId">
+            <input class="form-control" type="text" [(ngModel)]="editedTask.title" required>
+          </td>
+          <td *ngIf="task.id !== editTaskId">{{ task.assignedTo }}</td>
+          <td *ngIf="task.id === editTaskId">
+            <select class="form-control" [(ngModel)]="editedTask.assignedTo" required>
+              <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>
+            </select>
+          </td>
+          <td *ngIf="task.id !== editTaskId">
+            <span [ngClass]="{'text-success': task.status=='Completed', 'text-danger': task.status=='Pending' || task.status=='Cancelled','text-warning':task.status=='In Progress'}">
+              {{ task.status }}
+            </span>
+          </td>
+          <td *ngIf="task.id === editTaskId">
+            <select class="form-control" [(ngModel)]="editedTask.status" required>
+              <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+            </select>
+          </td>
+          <td *ngIf="task.id === editTaskId"></td>
+          <td>
+            <button class="btn btn-sm btn-primary me-2" *ngIf="task.id !== editTaskId" (click)="editTask(task)">Edit</button>
+            <button class="btn btn-sm btn-success me-2" *ngIf="task.id === editTaskId" (click)="updateTask()">Update</button>
+            <button class="btn btn-sm btn-warning me-2" *ngIf="task.id === editTaskId" (click)="cancelEdit()">Cancel</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteTask(task.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #editForm>
+      <form (submit)="updateTask()">
+        <div class="row">
+          <div class="col-4"><input class=" form-control" type="text" [(ngModel)]="editedTask.title" [ngModelOptions]="{standalone: true}" required></div>
+          <div class="col-4"><select class="col-4 form-control" [(ngModel)]="editedTask.assignedTo" [ngModelOptions]="{standalone: true}" (change)="onChange($event)" required>
+            <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>
+          </select></div>
+        <div class="col-4">
+          <button class="btn btn-sm btn-primary me-2" type="submit">Update</button>
+        <button class="btn btn-sm btn-warning" type="button" (click)="cancelEdit()">Cancel</button>
+        </div>
+        </div>
+      </form>
+    </ng-template>

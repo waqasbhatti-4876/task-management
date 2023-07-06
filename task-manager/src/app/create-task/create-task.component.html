@@ -1,0 +1,20 @@
+<h2 class="mb-4">Create Task</h2>
+    <form class="form-control" (submit)="createTask()">
+      <div class="row">
+        <div class="col-4 col-md-4">
+          <label>Title:</label>
+        <input class="form-control" type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required>
+        </div>
+
+        <div class="col-4 col-md-4 ">
+          <label class="input-text">Assigned To:</label>
+        <select class="form-control" [(ngModel)]="assignedTo" [ngModelOptions]="{standalone: true}" (change)="onChange($event)" required>
+          <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>
+        </select>
+        </div>
+
+        <div class="col-4 col-md-4 text-center mt-3">
+          <button class=" btn btn-md btn-primary" type="submit">Create</button>
+        </div>
+      </div>
+    </form>
